@@ -5,6 +5,7 @@ interface ModalProps {
   isOpen: boolean;
   setIsOpen: () => void;
   children?: ReactNode;
+  onOpenModal?: () => void;
 }
 
 export function Modal({ isOpen, setIsOpen, children }: ModalProps) {

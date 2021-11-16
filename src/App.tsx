@@ -9,6 +9,10 @@ import GlobalStyle from "./styles/global";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  function onOpenModal() {
+    setIsModalOpen(false);
+  }
+
   function handleCloseModal() {
     setIsModalOpen(false);
   }
@@ -17,7 +21,11 @@ function App() {
     <ModalContext.Provider value={[]}>
       <GlobalStyle />
       <Router>
-        <Modal isOpen={isModalOpen} setIsOpen={handleCloseModal} />
+        <Modal
+          isOpen={isModalOpen}
+          setIsOpen={handleCloseModal}
+          onOpenModal={onOpenModal}
+        />
         <Routes />
       </Router>
     </ModalContext.Provider>

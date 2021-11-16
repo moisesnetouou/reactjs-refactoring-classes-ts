@@ -23,6 +23,14 @@
       "description": "asdasd[[",
       "available": true,
       "id": 5
+    },
+    {
+      "image": "https://static1.conquistesuavida.com.br/articles//2/19/72/@/5471-pensando-de-forma-saudavel-o-indicado-article_gallery-2.jpg",
+      "name": "Café com Leite",
+      "price": "2.00",
+      "description": "Café com leite pow kkkk",
+      "available": true,
+      "id": 6
     }
   ]
 }
