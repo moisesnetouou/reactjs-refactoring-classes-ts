@@ -9,8 +9,8 @@ interface IFood {
   image: string;
   name: string;
   description: string;
-  price: number;
-  avaliable: boolean;
+  price: string;
+  available: boolean;
 }
 
 interface FoodProps {
@@ -20,7 +20,8 @@ interface FoodProps {
 }
 
 export function Food({ food, handleEditFood, handleDelete }: FoodProps) {
-  const [isAvailable, setIsAvailable] = useState(false);
+  const { available } = food;
+  const [isAvailable, setIsAvailable] = useState(available);
 
   const toggleAvailable = async () => {
     await api.put(`/foods/${food.id}`, {

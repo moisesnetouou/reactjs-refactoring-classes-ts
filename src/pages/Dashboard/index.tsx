@@ -2,17 +2,17 @@ import { Header } from "../../components/Header";
 import api from "../../services/api";
 import { Food } from "../../components/Food";
 import { ModalAddFood } from "../../components/ModalAddFood";
-import ModalEditFood from "../../components/ModalEditFood";
+import { ModalEditFood } from "../../components/ModalEditFood";
 import { FoodsContainer } from "./styles";
 import { useEffect, useState } from "react";
 
 interface IFood {
   id: number;
-  image: string;
   name: string;
   description: string;
-  price: number;
-  avaliable: boolean;
+  price: string;
+  available: boolean;
+  image: string;
 }
 
 interface AddFood {
@@ -37,7 +37,7 @@ export function Dashboard() {
     getFood();
   }, []);
 
-  const handleAddFood = async (food: AddFood): Promise<void> => {
+  async function handleAddFood(food: AddFood): Promise<void> {
     try {
       const response = await api.post("/foods", {
         ...food,
@@ -48,7 +48,7 @@ export function Dashboard() {
     } catch (err) {
       console.log(err);
     }
-  };
+  }
 
   const handleUpdateFood = async (food: AddFood): Promise<void> => {
     try {
@@ -84,8 +84,8 @@ export function Dashboard() {
   };
 
   const handleEditFood = (food: IFood) => {
-    setEditingFood(food);
     setEditModalOpen(true);
+    setEditingFood(food);
   };
 
   return (
