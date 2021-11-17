@@ -21,6 +21,7 @@ interface FoodProps {
 
 export function Food({ food, handleEditFood, handleDelete }: FoodProps) {
   const { available } = food;
+
   const [isAvailable, setIsAvailable] = useState(available);
 
   const toggleAvailable = async () => {
